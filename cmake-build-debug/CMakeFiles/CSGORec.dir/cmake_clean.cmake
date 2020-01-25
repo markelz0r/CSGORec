@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CSGORec.dir/ConsoleService.cpp.o"
+  "CMakeFiles/CSGORec.dir/Services/BashService.cpp.o"
+  "CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o"
   "CMakeFiles/CSGORec.dir/main.cpp.o"
   "CSGORec"
   "CSGORec.pdb"

@@ -6,29 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/markel33/CLionProjects/CSGORec/ConsoleService.cpp
-iostream
--
-ConsoleService.h
-/home/markel33/CLionProjects/CSGORec/ConsoleService.h
-X11/Xlib.h
--
-X11/keysym.h
--
-unistd.h
--
-cstring
--
+/home/markel33/CLionProjects/CSGORec/Services/BashService.h
 
-/home/markel33/CLionProjects/CSGORec/ConsoleService.h
+/home/markel33/CLionProjects/CSGORec/Services/ConsoleService.h
 X11/Xlib.h
 -
 
 /home/markel33/CLionProjects/CSGORec/main.cpp
 iostream
 -
-ConsoleService.h
-/home/markel33/CLionProjects/CSGORec/ConsoleService.h
+Services/ConsoleService.h
+/home/markel33/CLionProjects/CSGORec/Services/ConsoleService.h
+Services/BashService.h
+/home/markel33/CLionProjects/CSGORec/Services/BashService.h
 unistd.h
+-
+thread
 -
 

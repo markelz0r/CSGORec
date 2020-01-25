@@ -15,7 +15,7 @@ public:
     virtual ~ConsoleService();
     int openConsole();
     int closeConsole();
-    int typeCommand(char *command);
+    int typeCommand(std::string command);
 
 
 
@@ -25,6 +25,15 @@ private:
 //    Window winFocus;
 //    int    revert;
 
+    void InstertCommandFromString(const char *command);
+
+    XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot, bool press, int keycode, int modifiers);
+
+    void sendKeyPress(KeySym key);
+
+
+
+    void InstertCommandFromString(std::string command);
 };
 
 

@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/markel33/CLionProjects/CSGORec/ConsoleService.cpp" "/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/CSGORec.dir/ConsoleService.cpp.o"
+  "/home/markel33/CLionProjects/CSGORec/Services/BashService.cpp" "/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/CSGORec.dir/Services/BashService.cpp.o"
+  "/home/markel33/CLionProjects/CSGORec/Services/ConsoleService.cpp" "/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o"
   "/home/markel33/CLionProjects/CSGORec/main.cpp" "/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/CSGORec.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

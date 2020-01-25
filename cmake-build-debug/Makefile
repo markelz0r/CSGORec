@@ -123,32 +123,59 @@ CSGORec/fast:
 	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/build
 .PHONY : CSGORec/fast
 
-ConsoleService.o: ConsoleService.cpp.o
+Services/BashService.o: Services/BashService.cpp.o
 
-.PHONY : ConsoleService.o
+.PHONY : Services/BashService.o
 
 # target to build an object file
-ConsoleService.cpp.o:
-	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/ConsoleService.cpp.o
-.PHONY : ConsoleService.cpp.o
+Services/BashService.cpp.o:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/BashService.cpp.o
+.PHONY : Services/BashService.cpp.o
 
-ConsoleService.i: ConsoleService.cpp.i
+Services/BashService.i: Services/BashService.cpp.i
 
-.PHONY : ConsoleService.i
+.PHONY : Services/BashService.i
 
 # target to preprocess a source file
-ConsoleService.cpp.i:
-	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/ConsoleService.cpp.i
-.PHONY : ConsoleService.cpp.i
+Services/BashService.cpp.i:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/BashService.cpp.i
+.PHONY : Services/BashService.cpp.i
 
-ConsoleService.s: ConsoleService.cpp.s
+Services/BashService.s: Services/BashService.cpp.s
 
-.PHONY : ConsoleService.s
+.PHONY : Services/BashService.s
 
 # target to generate assembly for a file
-ConsoleService.cpp.s:
-	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/ConsoleService.cpp.s
-.PHONY : ConsoleService.cpp.s
+Services/BashService.cpp.s:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/BashService.cpp.s
+.PHONY : Services/BashService.cpp.s
+
+Services/ConsoleService.o: Services/ConsoleService.cpp.o
+
+.PHONY : Services/ConsoleService.o
+
+# target to build an object file
+Services/ConsoleService.cpp.o:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o
+.PHONY : Services/ConsoleService.cpp.o
+
+Services/ConsoleService.i: Services/ConsoleService.cpp.i
+
+.PHONY : Services/ConsoleService.i
+
+# target to preprocess a source file
+Services/ConsoleService.cpp.i:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.i
+.PHONY : Services/ConsoleService.cpp.i
+
+Services/ConsoleService.s: Services/ConsoleService.cpp.s
+
+.PHONY : Services/ConsoleService.s
+
+# target to generate assembly for a file
+Services/ConsoleService.cpp.s:
+	$(MAKE) -f CMakeFiles/CSGORec.dir/build.make CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.s
+.PHONY : Services/ConsoleService.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... CSGORec"
 	@echo "... edit_cache"
-	@echo "... ConsoleService.o"
-	@echo "... ConsoleService.i"
-	@echo "... ConsoleService.s"
+	@echo "... Services/BashService.o"
+	@echo "... Services/BashService.i"
+	@echo "... Services/BashService.s"
+	@echo "... Services/ConsoleService.o"
+	@echo "... Services/ConsoleService.i"
+	@echo "... Services/ConsoleService.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

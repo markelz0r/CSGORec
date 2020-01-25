@@ -14,11 +14,13 @@
 #define PERIOD XK_period
 #define SPACE XK_space
 #define ENTER XK_Return
+#define MINUS_KEY XK_minus
+#define UNDERSCORE_KEY XK_underscore
 
 using namespace std;
 ConsoleService::ConsoleService() = default;
 
-XKeyEvent createKeyEvent(Display *display, Window &win,
+XKeyEvent ConsoleService::createKeyEvent(Display *display, Window &win,
                          Window &winRoot, bool press,
                          int keycode, int modifiers)
 {
@@ -46,25 +48,35 @@ XKeyEvent createKeyEvent(Display *display, Window &win,
 }
 
 int ConsoleService::openConsole() {
-    Display *display = XOpenDisplay(nullptr);
-    Window winRoot = XDefaultRootWindow(display);
-    Window winFocus;
-    int    revert;
-    XGetInputFocus(display, &winFocus, &revert);
-
-    //TODO parametrise this
-    XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, INSERT_KEY, 0);
-    XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
-
-    event = createKeyEvent(display, winFocus, winRoot, false, INSERT_KEY, 0);
-    XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
-
-    XCloseDisplay(display);
+    sendKeyPress(INSERT_KEY);
     return 0;
 }
 
-int ConsoleService::typeCommand(char *command) {
+int ConsoleService::typeCommand(string command) {
     sleep(1);
+    InstertCommandFromString(command);
+    sendKeyPress(ENTER);
+    return 0;
+}
+
+void ConsoleService::sendKeyPress(KeySym key) {
+    Display *display = XOpenDisplay(nullptr);
+    Window winRoot = XDefaultRootWindow(display);
+    Window winFocus;
+    int    revert;
+    XGetInputFocus(display, &winFocus, &revert);
+
+
+    XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, key, 0);
+    XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
+
+    event = createKeyEvent(display, winFocus, winRoot, false, key, 0);
+    XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
+
+    XCloseDisplay(display);
+}
+
+void ConsoleService::InstertCommandFromString(string command) {
 
     Display *display = XOpenDisplay(nullptr);
     Window winRoot = XDefaultRootWindow(display);
@@ -72,11 +84,12 @@ int ConsoleService::typeCommand(char *command) {
     int    revert;
     XGetInputFocus(display, &winFocus, &revert);
 
-    for (int i = 0; i < strlen(command); i++){
-        std::string str = "volume 0.6";
-        string sym(1, str[i]);
+    for (int i = 0; i < command.length(); i++){
+        string str = "volume 0.6";
+        string sym(1, command[i]);
 
         KeySym com = XStringToKeysym(sym.c_str());
+        int modifier = 0;
 
         if (sym == ".")
             com = PERIOD;
@@ -84,12 +97,21 @@ int ConsoleService::typeCommand(char *command) {
         if (sym == " ")
             com = SPACE;
 
-        XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, com, 0);
+        if (sym == "_") {
+            com = UNDERSCORE_KEY;
+            modifier = 1;
+        }
+
+        if (sym == "-")
+            com = MINUS_KEY;
+
+
+
+        XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, com, modifier);
         XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
 
-        event = createKeyEvent(display, winFocus, winRoot, false, com, 0);
+        event = createKeyEvent(display, winFocus, winRoot, false, com, modifier);
         XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
-
     }
 
     XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, ENTER, 0);
@@ -98,11 +120,7 @@ int ConsoleService::typeCommand(char *command) {
     event = createKeyEvent(display, winFocus, winRoot, false, ENTER, 0);
     XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
 
-
-// Done.
-    cout << "Command executed";
     XCloseDisplay(display);
-    return 0;
 }
 
 
@@ -110,24 +128,17 @@ int ConsoleService::closeConsole() {
     Display *display = XOpenDisplay(nullptr);
     if(display == nullptr)
         return -1;
-
-// Get the root window for the current display.
     Window winRoot = XDefaultRootWindow(display);
-// Find the window which has the current keyboard focus.
     Window winFocus;
     int    revert;
     XGetInputFocus(display, &winFocus, &revert);
 
-// Send a fake key press event to the window.
     XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, ESC_KEY, 0);
     XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
 
-// Send a fake key release event to the window.
     event = createKeyEvent(display, winFocus, winRoot, false, ESC_KEY, 0);
     XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);
 
-// Done.
-    cout << "Console Closed";
     XCloseDisplay(display);
     return 0;
 }

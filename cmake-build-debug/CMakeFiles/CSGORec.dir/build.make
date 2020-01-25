@@ -70,32 +70,47 @@ CMakeFiles/CSGORec.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSGORec.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markel33/CLionProjects/CSGORec/main.cpp -o CMakeFiles/CSGORec.dir/main.cpp.s
 
-CMakeFiles/CSGORec.dir/ConsoleService.cpp.o: CMakeFiles/CSGORec.dir/flags.make
-CMakeFiles/CSGORec.dir/ConsoleService.cpp.o: ../ConsoleService.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CSGORec.dir/ConsoleService.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CSGORec.dir/ConsoleService.cpp.o -c /home/markel33/CLionProjects/CSGORec/ConsoleService.cpp
+CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o: CMakeFiles/CSGORec.dir/flags.make
+CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o: ../Services/ConsoleService.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o -c /home/markel33/CLionProjects/CSGORec/Services/ConsoleService.cpp
 
-CMakeFiles/CSGORec.dir/ConsoleService.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSGORec.dir/ConsoleService.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markel33/CLionProjects/CSGORec/ConsoleService.cpp > CMakeFiles/CSGORec.dir/ConsoleService.cpp.i
+CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markel33/CLionProjects/CSGORec/Services/ConsoleService.cpp > CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.i
 
-CMakeFiles/CSGORec.dir/ConsoleService.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSGORec.dir/ConsoleService.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markel33/CLionProjects/CSGORec/ConsoleService.cpp -o CMakeFiles/CSGORec.dir/ConsoleService.cpp.s
+CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markel33/CLionProjects/CSGORec/Services/ConsoleService.cpp -o CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.s
+
+CMakeFiles/CSGORec.dir/Services/BashService.cpp.o: CMakeFiles/CSGORec.dir/flags.make
+CMakeFiles/CSGORec.dir/Services/BashService.cpp.o: ../Services/BashService.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CSGORec.dir/Services/BashService.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CSGORec.dir/Services/BashService.cpp.o -c /home/markel33/CLionProjects/CSGORec/Services/BashService.cpp
+
+CMakeFiles/CSGORec.dir/Services/BashService.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CSGORec.dir/Services/BashService.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markel33/CLionProjects/CSGORec/Services/BashService.cpp > CMakeFiles/CSGORec.dir/Services/BashService.cpp.i
+
+CMakeFiles/CSGORec.dir/Services/BashService.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CSGORec.dir/Services/BashService.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markel33/CLionProjects/CSGORec/Services/BashService.cpp -o CMakeFiles/CSGORec.dir/Services/BashService.cpp.s
 
 # Object files for target CSGORec
 CSGORec_OBJECTS = \
 "CMakeFiles/CSGORec.dir/main.cpp.o" \
-"CMakeFiles/CSGORec.dir/ConsoleService.cpp.o"
+"CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o" \
+"CMakeFiles/CSGORec.dir/Services/BashService.cpp.o"
 
 # External object files for target CSGORec
 CSGORec_EXTERNAL_OBJECTS =
 
 CSGORec: CMakeFiles/CSGORec.dir/main.cpp.o
-CSGORec: CMakeFiles/CSGORec.dir/ConsoleService.cpp.o
+CSGORec: CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o
+CSGORec: CMakeFiles/CSGORec.dir/Services/BashService.cpp.o
 CSGORec: CMakeFiles/CSGORec.dir/build.make
 CSGORec: CMakeFiles/CSGORec.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable CSGORec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CSGORec"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CSGORec.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

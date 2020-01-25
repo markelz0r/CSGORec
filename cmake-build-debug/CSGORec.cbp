@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/markel33/CLionProjects/CSGORec/ConsoleService.cpp">
+		<Unit filename="/home/markel33/CLionProjects/CSGORec/Services/BashService.cpp">
 			<Option target="CSGORec"/>
 		</Unit>
-		<Unit filename="/home/markel33/CLionProjects/CSGORec/ConsoleService.h">
+		<Unit filename="/home/markel33/CLionProjects/CSGORec/Services/BashService.h">
+			<Option target="CSGORec"/>
+		</Unit>
+		<Unit filename="/home/markel33/CLionProjects/CSGORec/Services/ConsoleService.cpp">
+			<Option target="CSGORec"/>
+		</Unit>
+		<Unit filename="/home/markel33/CLionProjects/CSGORec/Services/ConsoleService.h">
 			<Option target="CSGORec"/>
 		</Unit>
 		<Unit filename="/home/markel33/CLionProjects/CSGORec/main.cpp">
