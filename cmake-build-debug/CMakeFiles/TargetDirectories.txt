@@ -1,0 +1,3 @@
+/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/CSGORec.dir
+/home/markel33/CLionProjects/CSGORec/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/markel33/CLionProjects/CSGORec/ConsoleService.cpp
+iostream
+-
+ConsoleService.h
+/home/markel33/CLionProjects/CSGORec/ConsoleService.h
+X11/Xlib.h
+-
+X11/keysym.h
+-
+unistd.h
+-
+cstring
+-
+
+/home/markel33/CLionProjects/CSGORec/ConsoleService.h
+X11/Xlib.h
+-
+
+/home/markel33/CLionProjects/CSGORec/main.cpp
+iostream
+-
+ConsoleService.h
+/home/markel33/CLionProjects/CSGORec/ConsoleService.h
+unistd.h
+-
+
