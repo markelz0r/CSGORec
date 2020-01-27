@@ -16,7 +16,7 @@ public:
     int openConsole();
     int closeConsole();
     int typeCommand(std::string command);
-
+    void sendKeyPress(KeySym key);
 
 
 private:
@@ -29,7 +29,7 @@ private:
 
     XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot, bool press, int keycode, int modifiers);
 
-    void sendKeyPress(KeySym key);
+
 
 
 

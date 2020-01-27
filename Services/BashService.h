@@ -6,7 +6,6 @@
 #define CSGOREC_BASHSERVICE_H
 
 
-#include <bits/basic_string.h>
 
 class BashService {
 public:
@@ -19,7 +18,9 @@ public:
 
     void StopRecording();
 
-    std::__cxx11::basic_string<char> Execute(const char *cmd);
+    void StartGame();
+
+    void StopGame();
 };
 
 

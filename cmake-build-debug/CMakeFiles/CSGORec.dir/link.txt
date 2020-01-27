@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -pthread -g   CMakeFiles/CSGORec.dir/main.cpp.o CMakeFiles/CSGORec.dir/Services/ConsoleService.cpp.o CMakeFiles/CSGORec.dir/Services/BashService.cpp.o  -o CSGORec -lX11 
