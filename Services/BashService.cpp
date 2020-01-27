@@ -10,13 +10,21 @@
 #include <stdexcept>
 #include <string>
 #include <array>
+#include <cstring>
 
 BashService::BashService() {
 
 }
 
-void BashService::StartRecording() {
-    system("ffmpeg -y -hide_banner -loglevel panic -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0+0,0 -f pulse -i alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo.monitor -c:v h264_nvenc -b:v 10M  /home/markel33/Videos/output.mp4");
+void BashService::StartRecording(int duration) {
+
+    std::string part1 = "ffmpeg -y -hide_banner -loglevel panic -video_size 1920x1080 -framerate 60 -f x11grab -t ";
+    std::string part2 = part1.append(std::to_string(duration));
+    std::string part3 = part2.append(" -i :1 -f pulse -t ");
+    std::string part4 = part3.append(std::to_string(duration));
+    std::string part5 = part4.append(" -i alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo.monitor -c:v h264_nvenc -b:v 10M  /home/markel33/Videos/output.mp4");
+
+    system(part5.c_str());
 }
 
 void BashService::StopRecording() {
