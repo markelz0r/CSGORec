@@ -14,7 +14,7 @@ public:
     virtual ~BashService();
 
 
-    void StartRecording(int duration);
+    void StartRecording(int duration, int player_number);
 
     void StopRecording();
 

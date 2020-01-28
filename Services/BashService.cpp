@@ -16,15 +16,17 @@ BashService::BashService() {
 
 }
 
-void BashService::StartRecording(int duration) {
+void BashService::StartRecording(int duration, int player_number) {
 
     std::string part1 = "ffmpeg -y -hide_banner -loglevel panic -video_size 1920x1080 -framerate 60 -f x11grab -t ";
     std::string part2 = part1.append(std::to_string(duration));
     std::string part3 = part2.append(" -i :1 -f pulse -t ");
     std::string part4 = part3.append(std::to_string(duration));
-    std::string part5 = part4.append(" -i alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo.monitor -c:v h264_nvenc -b:v 10M  /home/markel33/Videos/output.mp4");
+    std::string part5 = part4.append(" -i alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo.monitor -c:v h264_nvenc -b:v 10M  ~/Videos/demo_player");
+    std::string part6 = part5.append(std::to_string(player_number));
+    std::string part7 = part6.append(".mp4");
 
-    system(part5.c_str());
+    system(part7.c_str());
 }
 
 void BashService::StopRecording() {
