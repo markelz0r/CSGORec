@@ -7,7 +7,6 @@
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <unistd.h>
-#include <cstring>
 
 #define INSERT_KEY XK_Insert
 #define ESC_KEY XK_Escape
