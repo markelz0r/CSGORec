@@ -12,7 +12,7 @@ This would only work with CS:GO running on some kind of X11 system (sorry Window
 Using this tool is a pretty straightforward process, however it is not very generic by design, so you might need to tweak some things, more specifically commands in `BashService`. To run the tool use the following command:
 
 ```
-./CSGORec <tickrate> <start_tick> <end_tick>
+./CSGORec <tickrate> <start_tick> <end_tick> <path_to_demo>
 ```
 
 This would produce 10 video files in your `~/Video/` directory with the recording for each player between ticks specified.
