@@ -7,7 +7,6 @@
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <unistd.h>
-#include <cstring>
 
 #define INSERT_KEY XK_Insert
 #define ESC_KEY XK_Escape
@@ -105,7 +104,8 @@ void ConsoleService::InstertCommandFromString(string command) {
         if (sym == "-")
             com = MINUS_KEY;
 
-
+        if (sym == "/")
+            com = XK_slash;
 
         XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, com, modifier);
         XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);

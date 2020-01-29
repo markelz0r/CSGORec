@@ -5,17 +5,18 @@
 #ifndef CSGOREC_GAMESERVICE_H
 #define CSGOREC_GAMESERVICE_H
 
-
+#include <iostream>
 #include <X11/X.h>
 
 class GameService {
 public:
-    GameService(int startTick, int duration);
+    GameService(int startTick, int duration, std::string demoPath);
     void initRecording();
 
 private:
     int start_tick;
     int duration;
+    std::string demo_path;
 
     void recordPlayer(int player_number);
 

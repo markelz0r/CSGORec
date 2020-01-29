@@ -5,6 +5,7 @@
 #ifndef CSGOREC_BASHSERVICE_H
 #define CSGOREC_BASHSERVICE_H
 
+#include <string>
 
 
 class BashService {
@@ -18,9 +19,19 @@ public:
 
     void StopRecording();
 
-    void StartGame();
+    void StartGame(std::string demo_path);
 
     void StopGame();
+
+    std::string Execute(const char *cmd);
+
+    std::string GetStdoutFromCommand(std::string cmd);
+
+    void RemoveNewLine(std::string &s);
+
+    std::string GenerateFFmpegCommand();
+
+    std::string GenerateFFmpegCommand(int duration, int player_number);
 };
 
 

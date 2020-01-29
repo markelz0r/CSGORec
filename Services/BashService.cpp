@@ -4,13 +4,10 @@
 
 #include <cstdlib>
 #include "BashService.h"
+#include <string>
+#include <unistd.h>
 #include <cstdio>
 #include <iostream>
-#include <memory>
-#include <stdexcept>
-#include <string>
-#include <array>
-#include <cstring>
 
 BashService::BashService() {
 
@@ -18,41 +15,71 @@ BashService::BashService() {
 
 void BashService::StartRecording(int duration, int player_number) {
 
-    std::string part1 = "ffmpeg -y -hide_banner -loglevel panic -video_size 1920x1080 -framerate 60 -f x11grab -t ";
-    std::string part2 = part1.append(std::to_string(duration));
-    std::string part3 = part2.append(" -i :1 -f pulse -t ");
-    std::string part4 = part3.append(std::to_string(duration));
-    std::string part5 = part4.append(" -i alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo.monitor -c:v h264_nvenc -b:v 10M  ~/Videos/demo_player");
-    std::string part6 = part5.append(std::to_string(player_number));
-    std::string part7 = part6.append(".mp4");
-
-    system(part7.c_str());
+   std::string cmd = GenerateFFmpegCommand(duration, player_number);
+   system(cmd.c_str());
 }
 
 void BashService::StopRecording() {
     system("killall -INT ffmpeg");
 }
 
-void BashService::StartGame() {
-    system("steam -applaunch 730 -fullscreen");
+void BashService::StartGame(std::string demo_path) {
+    std::string cmd = "steam -applaunch 730 -fullscreen +playdemo ";
+    std::string cmd_full = cmd.append(demo_path);
+    system(cmd_full.c_str());
 }
 
 void BashService::StopGame() {
     system("killall csgo_linux64");
 }
 
-//std::string BashService::Execute(const char* cmd) {
-//    std::array<char, 128> buffer;
-//    std::string result;
-//    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
-//    if (!pipe) {
-//        throw std::runtime_error("popen() failed!");
-//    }
-//    while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
-//        result += buffer.data();
-//    }
-//    return result;
-//}
+std::string BashService::GetStdoutFromCommand(std::string cmd) {
+
+    std::string data;
+    FILE * stream;
+    const int max_buffer = 256;
+    char buffer[max_buffer];
+    cmd.append(" 2>&1");
+
+    stream = popen(cmd.c_str(), "r");
+    if (stream) {
+        while (!feof(stream))
+            if (fgets(buffer, max_buffer, stream) != NULL) data.append(buffer);
+        pclose(stream);
+    }
+    RemoveNewLine(data);
+    return data;
+}
+
+void BashService::RemoveNewLine(std::string &s)
+{
+    int pos;
+    if((pos=s.find('\n')) != std::string::npos)
+        s.erase(pos);
+}
+
+
+std::string BashService::GenerateFFmpegCommand(int duration, int player_number) {
+    std::string default_monitor_cmd= "pacmd info | grep -e \"Default sink name\" | gawk -F\"name: \" '/name/{print $2}'";
+    std::string default_monitor = GetStdoutFromCommand(default_monitor_cmd).append(".monitor");
+
+    std::cout << "Default sound device - " << default_monitor;
+
+    //std::string init = "ffmpeg -y -hide_banner -loglevel panic -video_size 1920x1080 -framerate 60 -f x11grab -t ";
+    std::string init = "ffmpeg -y -video_size 1920x1080 -framerate 60 -f x11grab -t ";
+    std::string cmd = init.append(std::to_string(duration))
+            .append(" -i :1 -f pulse -t ")
+            .append(std::to_string(duration))
+            .append(" -i ")
+            .append(default_monitor)
+            .append(" -c:v h264_nvenc -b:v 10M  ~/Videos/demo_player")
+            .append(std::to_string(player_number))
+            .append(".mp4");
+
+    return cmd;
+}
+
+
 
 BashService::~BashService() {
 
