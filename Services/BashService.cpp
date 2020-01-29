@@ -23,8 +23,10 @@ void BashService::StopRecording() {
     system("killall -INT ffmpeg");
 }
 
-void BashService::StartGame() {
-    system("steam -applaunch 730 -fullscreen");
+void BashService::StartGame(std::string demo_path) {
+    std::string cmd = "steam -applaunch 730 -fullscreen +playdemo ";
+    std::string cmd_full = cmd.append(demo_path);
+    system(cmd_full.c_str());
 }
 
 void BashService::StopGame() {

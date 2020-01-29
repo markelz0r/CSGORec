@@ -104,7 +104,8 @@ void ConsoleService::InstertCommandFromString(string command) {
         if (sym == "-")
             com = MINUS_KEY;
 
-
+        if (sym == "/")
+            com = XK_slash;
 
         XKeyEvent event = createKeyEvent(display, winFocus, winRoot, true, com, modifier);
         XSendEvent(event.display, event.window, True, KeyPressMask, (XEvent *)&event);

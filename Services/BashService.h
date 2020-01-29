@@ -19,7 +19,7 @@ public:
 
     void StopRecording();
 
-    void StartGame();
+    void StartGame(std::string demo_path);
 
     void StopGame();
 

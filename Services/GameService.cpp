@@ -10,7 +10,7 @@
 #include <thread>
 #include <X11/keysym.h>
 
-GameService::GameService(int startTick, int duration) : start_tick(startTick), duration(duration) {
+GameService::GameService(int startTick, int duration, std::string demoPath) : start_tick(startTick), duration(duration), demo_path(demoPath) {
 
 }
 
@@ -27,26 +27,25 @@ void GameService::recordPlayer(int player_number) {
     auto* c = new ConsoleService();
     auto* b = new BashService();
 
-    std::thread game([b]{
-        b->StartGame();
+
+    std::thread game([b, this]{
+        b->StartGame(demo_path);
     });
 
-
     std::cout << "Launching the game\n";
-
     sleep(60);
-
     std::cout << "Strating Demo\n";
+    std::cout << "Selecting player\n";
+
+    sleep(1);
 
     c->openConsole();
-    c->typeCommand("playdemo demo.dem");
+    std::string command = "demo_gototick ";
+    command.append(std::to_string(start_tick));
+    c->typeCommand(command);
     c->closeConsole();
+    sleep(1);
 
-    sleep(30);
-
-
-
-    std::cout << "Selecting player\n";
     c->sendKeyPress(getKeySymForPlayerNumber(player_number));
 
     sleep(1);
@@ -55,17 +54,13 @@ void GameService::recordPlayer(int player_number) {
 
     c->openConsole();
     c->typeCommand("demo_pause");
-
-    std::string command = "demo_gototick ";
-    command.append(std::to_string(start_tick));
-
-    c->typeCommand(command);
+    std::string command1 = "demo_gototick ";
+    command1.append(std::to_string(start_tick));
+    c->typeCommand(command1);
     c->typeCommand("demo_resume");
     c->closeConsole();
 
-
-    std::cout << "Starting Recording\n";
-    std::cout << duration;
+    std::cout << "Start Recording\n";
 
     b->StartRecording(duration, player_number);
 
